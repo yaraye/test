@@ -6,11 +6,17 @@ router.route("/")
   .get(membersController.findAll)
   .post(membersController.create);
 
+  router.route('/api/members/:id')
+  .put(membersController.update);
+
 // Matches with "/api/members/:id"
 router
   .route("/:id")
   .get(membersController.findById)
-  .put(membersController.update)
+  // .put(membersController.update)
   .delete(membersController.remove);
+
+
+  
 
 module.exports = router;

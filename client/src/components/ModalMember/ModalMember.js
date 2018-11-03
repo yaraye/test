@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { Col,} from "../Grid";
 import {Input, TextArea, FormBtn } from "../Form";
 import {Button } from 'react-bootstrap';
+import Members from '../../pages/Members';
 
  
 const customStyles = {
@@ -21,8 +22,9 @@ Modal.setAppElement('body');
  
   
 export default class ModalMember extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    // this.props.func(this);
  
     this.state = {
       modalIsOpen: false,
@@ -60,16 +62,16 @@ export default class ModalMember extends React.Component {
         >
  
           <h2 ref={subtitle => this.subtitle = subtitle}>Member Update Form</h2>
-          
+          <h2>{this.props.member_id}</h2>
+         
           <Col size="md-6" >
             <form className= "modalForm">
-            
-              {/* <Input
-                value={this.props.member}
-                onChange={this.props.handleInputChange}
-                name="member"
-                placeholder="member (required)"
-              /> */}
+               {/* <Input
+                 value={this.props.member}
+               onChange={this.props.handleInputChange}
+               name="member"
+                 placeholder="member (required)"
+               />  */}
               <Input
                 value={this.props.payment}
                 onChange={this.props.handleInputChange}
@@ -82,22 +84,7 @@ export default class ModalMember extends React.Component {
                 name="reason"
                 placeholder="reason (required)"
               />
-              {/* <Select 
-              value ={this.props.reason}
-              onChange={this.props.handleInputChange}
-              name='status'>
-                <option defaultValue>
-                Choose...
-                </option>
-                <option>
-                Member Fee
-                </option>
-                <option 
-                value ={this.props.reason}
-                onChange={this.props.handleInputChange}>
-                Donation</option> 
-               </Select>   */}
-              {/* <Dropdown/> */}
+              
       {/* note-self(here the text area will pull name from login and auto populate) */}
               <TextArea
                 value={this.props.description}

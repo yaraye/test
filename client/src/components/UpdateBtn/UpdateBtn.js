@@ -8,7 +8,7 @@ import ModalMember from '../../components/ModalMember';
 const UpdateBtn = props => (
   <span className="update-btn" {...props}>
 {/* <Button onClick={this.props.openModal}>Update members</Button> */}
-<ModalMember/>
+<ModalMember onClick={() => this.props.updateMember(this.props.member._id)}/>
   </span>
 );
 

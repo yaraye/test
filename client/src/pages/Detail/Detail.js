@@ -33,22 +33,22 @@ class Detail extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Details</h1>
+             
               <br></br>
-              <span>Amount paid :   <strong>{this.state.member.payment}</strong></span>
+              <h1>Amount paid :   <strong>{this.state.member.payment}</strong></h1>
               <br></br>
-              <span>Reason for payment:   <strong>{this.state.member.reason}</strong></span>
+              <h1>Reason for payment:   <strong>{this.state.member.reason}</strong></h1>
 
               {/* data will be pulled from update form---- the total amount for that person will be display somewhere in the page
               <br></br>
-              <span>Amount paid :   <strong>{this.state.member.payment}</strong></span>
+              <h1>Amount paid :   <strong>{this.state.member.payment}</strong></h1>
               <br></br>
-              <span>Reason for payment:   <strong>{this.state.member.reason}</strong></span> */}
+              <h1>Reason for payment:   <strong>{this.state.member.reason}</strong></h1> */}
 
 
-              <span>
+              <h1>
                 {this.state.member.synopsis}
-              </span>
+              </h1>
             </article>
           </Col>
         </Row>

@@ -8,20 +8,24 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import {Select, Input, TextArea, FormBtn } from "../../components/Form";
 import "./Members.css";
-// import Dropdown from '../../components/Dropdown';
+import Dropdown from '../../components/Dropdown';
 // import Timestamp from 'react-timestamp';
 import Footer from '../../components/Footer';
 
 
 
+
 class Members extends Component {
+
   state = {
     members: [],
     member:"",
     payment: "",
     reason:"",
-    description: ""
+    description: "",
+    id:""
   };
+
 
   componentDidMount() {
     this.loadMembers();
@@ -41,10 +45,11 @@ class Members extends Component {
       .catch(err => console.log(err));
   };
 
-  UpdateMember = id => {
-    API.updateMember(id)
-      .then(res => this.loadMembers())
-      .catch(err => console.log(err));
+  updateMember = id => {
+    console.log(id);
+    // API.updateMember(id)
+    //   .then(res => this.loadMembers())
+    //   .catch(err => console.log(err));
   };
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -52,9 +57,15 @@ class Members extends Component {
       [name]: value
     });
   };
-
+  handleUpdate = event => {
+    console.log(event);
+    this.setState({
+      id: event
+    });
+  };
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log('here')
     if (this.state.member && this.state.payment) {
       API.saveMember({
         member: this.state.member,
@@ -103,7 +114,9 @@ class Members extends Component {
                 <option defaultValue>
                 Choose...
                 </option>
-                <option>
+                <option
+                value ={this.state.reason}
+                onChange={this.handleInputChange}>
                 Member Fee
                 </option>
                 <option 
@@ -111,7 +124,9 @@ class Members extends Component {
                 onChange={this.handleInputChange}>
                 Donation</option> 
                </Select>   */}
-              {/* <Dropdown/> */}
+               {/* <Dropdown  */}
+                {/* value={this.props.reason}
+                onChange={this.handleInputChange} /> */}
       
               <TextArea
                 value={this.state.description}
@@ -144,7 +159,7 @@ class Members extends Component {
                     
                     <DeleteBtn onClick={() => this.deleteMember(member._id)} />
                     
-                    <UpdateBtn  />
+                    <UpdateBtn onClick={() => this.updateMember(member._id)}  />
                   </ListItem>
                 ))}
               </List>
