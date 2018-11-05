@@ -4,7 +4,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import Footer from "../../components/Footer";
-import { List, ListItem } from "../../components/List";
+// import { List, ListItem } from "../../components/List";
 
 
 class Account extends Component {
@@ -31,10 +31,10 @@ class Account extends Component {
               </h1>
             </Jumbotron>
               <h3>No Member(s) to Display</h3>
-        
+
           </Col>
         </Row>
-       
+
         <Row>
           <br></br><br></br>
           <Col size="md-2">

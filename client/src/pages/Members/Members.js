@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
-import UpdateBtn from "../../components/UpdateBtn";
+//Update button
+// import UpdateBtn from "../../components/UpdateBtn";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import {Select, Input, TextArea, FormBtn } from "../../components/Form";
+import {Input, TextArea, FormBtn } from "../../components/Form";
+
+// import {Select} from "../../components/Form";
 import "./Members.css";
-import Dropdown from '../../components/Dropdown';
+  // <UpdateBtn onClick={() => this.updateMember(member._id)}>
+// import Dropdown from '../../components/Dropdown';
 // import Timestamp from 'react-timestamp';
+// onClick={() => this.props.updateMember(member._id)}
 import Footer from '../../components/Footer';
+import ModalMember from '../../components/ModalMember';
 
 
 
@@ -45,12 +51,6 @@ class Members extends Component {
       .catch(err => console.log(err));
   };
 
-  updateMember = id => {
-    console.log(id);
-    // API.updateMember(id)
-    //   .then(res => this.loadMembers())
-    //   .catch(err => console.log(err));
-  };
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -107,7 +107,7 @@ class Members extends Component {
                 name="reason"
                 placeholder="reason (required)"
               />
-              {/* <Select 
+              {/* <Select
               value ={this.state.reason}
               onChange={this.handleInputChange}
               name='status'>
@@ -119,15 +119,15 @@ class Members extends Component {
                 onChange={this.handleInputChange}>
                 Member Fee
                 </option>
-                <option 
+                <option
                 value ={this.state.reason}
                 onChange={this.handleInputChange}>
-                Donation</option> 
+                Donation</option>
                </Select>   */}
                {/* <Dropdown  */}
                 {/* value={this.props.reason}
                 onChange={this.handleInputChange} /> */}
-      
+
               <TextArea
                 value={this.state.description}
                 onChange={this.handleInputChange}
@@ -138,9 +138,9 @@ class Members extends Component {
                 disabled={!(this.state.payment && this.state.member)}
                 onClick={this.handleFormSubmit}
               >
-                Submit 
+                Submit
               </FormBtn>
-              
+
             </form>
           </Col>
           <Col size="md-6 sm-12">
@@ -156,10 +156,9 @@ class Members extends Component {
                         {member.member}
                       </strong>
                     </Link>
-                    
+
                     <DeleteBtn onClick={() => this.deleteMember(member._id)} />
-                    
-                    <UpdateBtn onClick={() => this.updateMember(member._id)}  />
+                    <ModalMember itemId={member._id} member={member.member} payment={member.payment} reason={member.reason} description={member.description} />
                   </ListItem>
                 ))}
               </List>
@@ -167,12 +166,12 @@ class Members extends Component {
               <h3>No Member(s) to Display</h3>
             )}
           </Col>
-      
+
         </Row>
       </Container>
         <Footer/>
         </div>
-     
+
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 const Nav = () => (
   <nav className="navbar navbar-default">
@@ -21,5 +21,3 @@ const Nav = () => (
 );
 
 export default Nav;
-
-

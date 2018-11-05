@@ -16,8 +16,8 @@ export default {
   deleteMember: function(id) {
     return axios.delete("/api/members/" + id);
   },
-  updateMember: function(id) {
-    return axios.put("/api/members/" + id);
+  updateMember: function(idData, updatedData) {
+    return axios.put("/api/members/" + idData.id, updatedData);
   },
   // Saves a member to the database
   saveMember: function(memberData) {

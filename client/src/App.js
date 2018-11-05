@@ -5,7 +5,7 @@ import Detail from "./pages/Detail";
 import Account from "./pages/Account";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Login from './components/Login';
+// import Login from './components/Login';
 
 const App = () => (
   <Router>
